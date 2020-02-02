@@ -8,7 +8,7 @@ ENV BOSH_VERSION=6.2.0 \
 
 RUN set -x && \
     apk update && \
-    apk add curl jq bash && \
+    apk add curl jq bash findutils && \
     curl -Lo /usr/local/bin/bosh https://github.com/cloudfoundry/bosh-cli/releases/download/v${BOSH_VERSION}/bosh-cli-${BOSH_VERSION}-linux-amd64 && \
     curl -Lo /tmp/cf.tgz "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=${CF_VERSION}&source=github-rel" && \
     tar xzf /tmp/cf.tgz -C /usr/local/bin cf && \
